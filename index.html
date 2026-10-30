@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hizkia Abrian Ristyano - Portofolio Sistem Informasi UNESA</title>
+    <style>
+        /* Reset & Variable CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --bg-color: #0d0f12;
+            --card-bg: #161b22;
+            --accent-color: #3b82f6;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-color: #1f2937;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background-color: rgba(13, 15, 18, 0.9);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--text-main);
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .btn-hire {
+            background-color: var(--text-main);
+            color: var(--bg-color);
+            padding: 8px 18px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.3s;
+        }
+
+        .btn-hire:hover {
+            opacity: 0.9;
+        }
+
+        /* Container Section */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px 0;
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: var(--text-main);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 40%;
+            height: 3px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        /* 1. About Me Section */
+        .about-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .about-img img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent-color);
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .about-item span {
+            display: block;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .about-item strong {
+            color: var(--text-main);
+            font-size: 1rem;
+        }
+
+        /* 2. What I Can Do Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
+        }
+
+        .skill-card h3 {
+            margin-bottom: 10px;
+            color: var(--accent-color);
+        }
+
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .tag {
+            background-color: rgba(59, 130, 246, 0.1);
+            color: var(--accent-color);
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        /* 3. School / Organization Experience Section */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .portfolio-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            transition: transform 0.3s;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .portfolio-card .year {
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .portfolio-card h3 {
+            margin: 5px 0 10px;
+        }
+
+        .portfolio-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* 4. Contact Section */
+        .contact-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            background-color: #1f2937;
+            color: var(--text-main);
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            border: 1px solid var(--border-color);
+            transition: background-color 0.3s;
+        }
+
+        .contact-btn:hover {
+            background-color: var(--accent-color);
+        }
+
+        /* Responsive UI */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <nav>
+        <div class="logo">HIZKIA ABRIAN RISTYANO</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">What I Can Do</a></li>
+            <li><a href="#experiences">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="#contact" class="btn-hire">Hire Me</a>
+    </nav>
+
+    <div class="container">
+
+        <!-- 1. Section: About Me -->
+        <section id="about">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-card">
+                <div class="about-img">
+                    <img src="PROFIL.jpeg" alt="Foto Profil Hizkia.jpeg">
+                </div>
+                <div class="about-text">
+                    <p>Mahasiswa S1 Sistem Informasi di Universitas Negeri Surabaya (UNESA) yang berambisi tinggi dan memiliki ketertarikan kuat pada persimpangan antara teknologi dan bisnis. Didorong oleh rasa ingin tahu yang tinggi dan pola pikir yang berorientasi pada hasil, dibekali dengan pengetahuan dasar yang solid serta keterampilan kolaborasi tim yang baik. Berkomitmen untuk memanfaatkan wawasan akademik demi memberikan kontribusi yang bermakna dan strategis di sektor teknologi.</p>
+                </div>
+            </div>
+            
+            <div class="about-grid">
+                <div class="about-item">
+                    <span>Name:</span>
+                    <strong>Hizkia Abrian Ristyano</strong>
+                </div>
+                <div class="about-item">
+                    <span>Major:</span>
+                    <strong>S1 Sistem Informasi</strong>
+                </div>
+                <div class="about-item">
+                    <span>Location:</span>
+                    <strong>Tuban, Jawa Timur, Indonesia</strong>
+                </div>
+                <div class="about-item">
+                    <span>Education:</span>
+                    <strong>SMAN 4 Bojonegoro, Universitas Negeri Surabaya</strong>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Section: What I Can Do -->
+        <section id="skills">
+            <h2 class="section-title">What I Can Do</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Technical Tools</h3>
+                    <p>Perangkat lunak dan aplikasi yang biasa digunakan untuk mendukung produktivitas dan pengembangan tugas.</p>
+                    <div class="tag-container">
+                        <span class="tag">Visual Studio Code</span>
+                        <span class="tag">Canva</span>
+                        <span class="tag">MS Word</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Soft Skills & Competencies</h3>
+                    <p>Kemampuan interpersonal dan problem-solving yang dikembangkan melalui kegiatan organisasi dan akademik.</p>
+                    <div class="tag-container">
+                        <span class="tag">Problem Solving</span>
+                        <span class="tag">Teamwork & Collaboration</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Languages</h3>
+                    <p>Penguasaan bahasa untuk komunikasi profesional.</p>
+                    <div class="tag-container">
+                        <span class="tag">English (Good)</span>
+                        <span class="tag">Indonesian (Good)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Section: School / Organization Experience -->
+        <section id="experiences">
+            <h2 class="section-title">School Experience</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <span class="year">SMAN 4 Bojonegoro</span>
+                    <h3>Scout</h3>
+                    <p>Berkolaborasi dengan anggota tim untuk merencanakan, mengorganisasi, dan melaksanakan program kepramukaan sekolah mingguan serta kegiatan pengabdian masyarakat, yang membentuk kepemimpinan dan kedisiplinan yang kuat..</p>
+                </div>
+
+                <div class="portfolio-card">
+                    <span class="year">SMAN 4 Bojonegoro</span>
+                    <h3>Volleyball Club</h3>
+                    <p>Mengembangkan kerja sama tim yang baik, pemikiran strategis, dan daya tahan yang tinggi melalui latihan intensif serta pertandingan kompetitif, serta menjaga komunikasi yang efektif dengan rekan satu tim.</p>
+                </div>
+
+                <div class="portfolio-card">
+                    <span class="year">SMAN 4 Bojonegoro</span>
+                    <h3>Traditional Javanese Orchestra</h3>
+                    <p>Mengembangkan konsentrasi tinggi, kedisiplinan, dan ekspresi artistik melalui penguasaan alat musik tradisional serta berkolaborasi dengan lebih dari 15 anggota ansambel.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Section: Contact -->
+        <section id="contact">
+            <h2 class="section-title">Contact</h2>
+            <div class="contact-card">
+                <h3>Let's Connect!</h3>
+                <p>Open to opportunities where I can contribute and grow within the technology and business sector.</p>
+                
+                <div class="contact-links">
+                    <a href="mailto:hizkiabrian07@gmail.com" class="contact-btn">Email Me</a>
+                    <a href="tel:+628511732347" class="contact-btn">WhatsApp / Phone</a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>
